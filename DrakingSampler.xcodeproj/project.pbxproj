@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B052F2A81724296B00C7484B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B052F2A71724296B00C7484B /* CoreMotion.framework */; };
 		B0E30FED1724170E00AC4D9E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E30FEC1724170E00AC4D9E /* UIKit.framework */; };
 		B0E30FEF1724170E00AC4D9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E30FEE1724170E00AC4D9E /* Foundation.framework */; };
 		B0E30FF11724170E00AC4D9E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E30FF01724170E00AC4D9E /* CoreGraphics.framework */; };
@@ -158,6 +159,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B052F2A71724296B00C7484B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		B0E30FE81724170E00AC4D9E /* DrakingSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrakingSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E30FEC1724170E00AC4D9E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B0E30FEE1724170E00AC4D9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -417,6 +419,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B052F2A81724296B00C7484B /* CoreMotion.framework in Frameworks */,
 				B0E310101724174800AC4D9E /* AudioToolbox.framework in Frameworks */,
 				B0E30FED1724170E00AC4D9E /* UIKit.framework in Frameworks */,
 				B0E30FEF1724170E00AC4D9E /* Foundation.framework in Frameworks */,
@@ -430,6 +433,7 @@
 		B0E30FDD1724170E00AC4D9E = {
 			isa = PBXGroup;
 			children = (
+				B052F2A71724296B00C7484B /* CoreMotion.framework */,
 				B0E3118F17241A1100AC4D9E /* MoMu-STK-1.0.0 */,
 				B0E3118A17241A0900AC4D9E /* mo_audio.h */,
 				B0E3118B17241A0900AC4D9E /* mo_audio.mm */,
@@ -1072,6 +1076,7 @@
 				B0E3100E1724170E00AC4D9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

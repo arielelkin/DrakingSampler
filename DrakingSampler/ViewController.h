@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #include "Stk.h"
-#include "PitShift.h"
+#include "LentPitShift.h"
+#include "PRCRev.h"
 
 using namespace stk;
 struct AudioData{
 	//Mandolin *myMandolin;
-    PitShift *pitShifter;
+    LentPitShift *pitShifter;
+    PRCRev *reverb;
 };
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <CoreMotion/CoreMotion.h>
 #import "mo_audio.h"
 
 
@@ -15,9 +16,9 @@
 #define NUMCHANNELS 2
 
 Float32 mySample[1000000] = {0};
-bool sessionRec;
+bool sessionRec = false;
 int mySessionCounter = 0;
-int loopSize;
+int loopSize = 0;
 
 void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 {
@@ -25,42 +26,42 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
     
     for(int i=0; i<framesize; i++)
     {
-        SAMPLE in = buffer[2*i];
+        
+        SAMPLE out = buffer[2*i];
         
         
-//        in = data->reverb->tick(in);
+//        out = data->reverb->tick(out);
 //
-//        in = in + data->mySynth->tick();
+//        out = out + data->mySynth->tick();
         
         
         if(sessionRec){
-            mySample[mySessionCounter] = in;
-            mySessionCounter++;
-        }
-        else if(mySample[0]) {
-            
-            in = mySample[mySessionCounter];
-            
-            in = data->pitShifter->tick(in);
-            
-            
+            mySample[mySessionCounter] = out;
             mySessionCounter++;
         }
         
+        else if (mySample[234] > 0) {
+            
+            
+//            out = data->pitShifter->tick( mySample[mySessionCounter] );
+            
+            out = data->reverb->tick( mySample[mySessionCounter] );
+            
+            
+            mySessionCounter++;
+        }
         
         
         if(mySessionCounter > 0 && loopSize > 0) mySessionCounter = mySessionCounter%loopSize;
         
-        
-        SAMPLE out = in;
-        
-
         
         buffer[2*i] = buffer[2*i+1] = out;
     }
 }
 
 @interface ViewController ()
+
+@property CMMotionManager *motionManager;
 
 @end
 
@@ -69,6 +70,8 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 - (IBAction)buttonDown{
     
     sessionRec = true;
+    loopSize = 0;
+    mySessionCounter = 0;
 }
 - (IBAction)buttonUp{
     
@@ -83,6 +86,7 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self setupAudio];
+    [self setupAccel];
 }
 
 -(void)setupAudio{
@@ -105,10 +109,33 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
         return;
     }
     
-    audioData.pitShifter = new PitShift();
+    audioData.pitShifter = new LentPitShift();
     audioData.pitShifter->setShift(2);
-
     
+    audioData.reverb = new PRCRev();
+    audioData.reverb->setT60(0.8);
+
+}
+
+-(void)setupAccel{
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = 0.01; // 100Hz
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue]
+                                             withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+                                                 if(!error){
+                                                     
+//                                                     NSLog(@"x: %.1f || y: %.1f || z: %.1f", accelerometerData.acceleration.x , accelerometerData.acceleration.y, accelerometerData.acceleration.z);
+                                                     
+                                                     audioData.pitShifter->setShift(fabs(accelerometerData.acceleration.y) * 1.8);
+                                                     
+                                                     audioData.reverb->setT60(fabs(accelerometerData.acceleration.y));
+                                                     
+                                                 }
+                                                 else {
+                                                     NSLog(@"accelerometer error!");
+                                                 }
+                                             }
+     ];
 
 }
 
