@@ -77,6 +77,15 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
     
     sessionRec = false;
     loopSize = mySessionCounter;
+    
+}
+
+- (IBAction)buttonErase:(id)sender {
+    
+    for (int i = 0; i < loopSize; i++)
+    {
+        mySample [i] = 0;
+    }
 }
 
 
