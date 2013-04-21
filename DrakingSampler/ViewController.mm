@@ -17,6 +17,7 @@
 Float32 mySample[1000000] = {0};
 bool sessionRec;
 int mySessionCounter = 0;
+int loopSize;
 
 void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 {
@@ -31,16 +32,21 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 //
 //        in = in + data->mySynth->tick();
         
-        SAMPLE out = in;
         
         if(sessionRec){
             mySample[mySessionCounter] = in;
             mySessionCounter++;
         }
-        else {
+        else if(mySample[0]) {
             in = mySample[mySessionCounter];
             mySessionCounter++;
         }
+        
+        if(mySessionCounter > 0 && loopSize > 0) mySessionCounter = mySessionCounter%loopSize;
+        
+        
+        SAMPLE out = in;
+        
 
         
         buffer[2*i] = buffer[2*i+1] = out;
@@ -52,6 +58,17 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 @end
 
 @implementation ViewController
+
+- (IBAction)buttonDown{
+    
+    sessionRec = true;
+}
+- (IBAction)buttonUp{
+    
+    sessionRec = false;
+    loopSize = mySessionCounter;
+}
+
 
 - (void)viewDidLoad
 {
