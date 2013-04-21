@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #include "Stk.h"
+#include "PitShift.h"
 
 using namespace stk;
 struct AudioData{
 	//Mandolin *myMandolin;
+    PitShift *pitShifter;
 };
 
 

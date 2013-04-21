@@ -21,7 +21,7 @@ int loopSize;
 
 void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 {
-//    AudioData * data = (AudioData*) userData;
+    AudioData * data = (AudioData*) userData;
     
     for(int i=0; i<framesize; i++)
     {
@@ -38,9 +38,16 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
             mySessionCounter++;
         }
         else if(mySample[0]) {
+            
             in = mySample[mySessionCounter];
+            
+            in = data->pitShifter->tick(in);
+            
+            
             mySessionCounter++;
         }
+        
+        
         
         if(mySessionCounter > 0 && loopSize > 0) mySessionCounter = mySessionCounter%loopSize;
         
@@ -97,6 +104,12 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
         NSLog(@"cannot start real-time audio!");
         return;
     }
+    
+    audioData.pitShifter = new PitShift();
+    audioData.pitShifter->setShift(2);
+
+    
+
 }
 
 - (void)didReceiveMemoryWarning
