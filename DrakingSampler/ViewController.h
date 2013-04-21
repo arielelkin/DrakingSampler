@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #include "Stk.h"
-#include "LentPitShift.h"
 #include "PRCRev.h"
+#include "SineWave.h"
 
 using namespace stk;
 struct AudioData{
-	//Mandolin *myMandolin;
-    LentPitShift *pitShifter;
     PRCRev *reverb;
+    SineWave *sine;
 };
 
 
@@ -26,6 +25,6 @@ struct AudioData{
 }
 - (IBAction)buttonDown;
 - (IBAction)buttonUp;
-- (IBAction)buttonErase:(id)sender;
+- (IBAction)buttonErase;
 
 @end

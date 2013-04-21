@@ -43,10 +43,8 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
         else if (mySample[234] > 0) {
             
             
-//            out = data->pitShifter->tick( mySample[mySessionCounter] );
-            
-            out = data->reverb->tick( mySample[mySessionCounter] );
-            
+            out = data->reverb->tick( mySample[mySessionCounter] ) * data->sine->tick();
+
             
             mySessionCounter++;
         }
@@ -80,7 +78,7 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
     
 }
 
-- (IBAction)buttonErase:(id)sender {
+- (IBAction)buttonErase{
     
     for (int i = 0; i < loopSize; i++)
     {
@@ -118,8 +116,8 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
         return;
     }
     
-    audioData.pitShifter = new LentPitShift();
-    audioData.pitShifter->setShift(2);
+    audioData.sine = new SineWave();
+    audioData.sine->setFrequency(10);
     
     audioData.reverb = new PRCRev();
     audioData.reverb->setT60(0.8);
@@ -135,7 +133,7 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
                                                      
 //                                                     NSLog(@"x: %.1f || y: %.1f || z: %.1f", accelerometerData.acceleration.x , accelerometerData.acceleration.y, accelerometerData.acceleration.z);
                                                      
-                                                     audioData.pitShifter->setShift(fabs(accelerometerData.acceleration.y) * 1.8);
+                                                     audioData.sine->setFrequency(fabs(accelerometerData.acceleration.x) * 30);
                                                      
                                                      audioData.reverb->setT60(fabs(accelerometerData.acceleration.y));
                                                      
