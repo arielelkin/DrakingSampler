@@ -430,8 +430,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				B052F2A81724296B00C7484B /* CoreMotion.framework in Frameworks */,
+=======
 				E4931D011724348C000B6F3B /* ImageIO.framework in Frameworks */,
+>>>>>>> 332eeae5398164ea6a4eeade0a567fde3df4983d
 				B0E310101724174800AC4D9E /* AudioToolbox.framework in Frameworks */,
 				B0E30FED1724170E00AC4D9E /* UIKit.framework in Frameworks */,
 				B0E30FEF1724170E00AC4D9E /* Foundation.framework in Frameworks */,
@@ -445,13 +448,16 @@
 		B0E30FDD1724170E00AC4D9E = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				B052F2A71724296B00C7484B /* CoreMotion.framework */,
+=======
 				E4931D0517243513000B6F3B /* UIImage+animatedGIF.h */,
 				E4931D0617243513000B6F3B /* UIImage+animatedGIF.m */,
 				E4931D001724348C000B6F3B /* ImageIO.framework */,
 				E4931CD21724322D000B6F3B /* 0.gif */,
 				E4931CD31724322E000B6F3B /* 1.gif */,
 				E4931CD41724322E000B6F3B /* 2.gif */,
+>>>>>>> 332eeae5398164ea6a4eeade0a567fde3df4983d
 				B0E3118F17241A1100AC4D9E /* MoMu-STK-1.0.0 */,
 				B0E3118A17241A0900AC4D9E /* mo_audio.h */,
 				B0E3118B17241A0900AC4D9E /* mo_audio.mm */,

@@ -72,6 +72,8 @@
             </objects>
         </scene>
     </scenes>
+<<<<<<< HEAD
+=======
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -90,6 +92,7 @@
             </relationships>
         </class>
     </classes>
+>>>>>>> 332eeae5398164ea6a4eeade0a567fde3df4983d
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

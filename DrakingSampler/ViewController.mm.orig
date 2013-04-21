@@ -104,12 +104,16 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self setupAudio];
+<<<<<<< HEAD
     [self setupAccel];
+=======
+    
     [self setupVisuals];
 }
 
 -(void)setupVisuals{
     
+>>>>>>> 332eeae5398164ea6a4eeade0a567fde3df4983d
 }
 
 -(void)setupAudio{
