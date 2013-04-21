@@ -75,4 +75,6 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)RecordPlayButton:(id)sender {
+}
 @end
