@@ -14,11 +14,11 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAJ-7m-zHO">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="512" id="4bU-dD-F6s"/>
                                     <constraint firstAttribute="height" constant="444" id="678-eI-6GB"/>
+                                    <constraint firstAttribute="width" constant="641" id="HkB-BG-jbc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <state key="normal" title="Record/Play">
+                                <state key="normal" title="Press and Hold to Record">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -47,15 +47,26 @@
                                     <action selector="buttonErase:" destination="2" eventType="touchUpInside" id="dBY-77-LaN"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RU-BP-O20">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="410" id="7qK-zT-I1h"/>
+                                    <constraint firstAttribute="height" constant="227" id="lSz-m8-mju"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.12351328335903636" green="0.64215353260869568" blue="0.056084275903596152" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="OAJ-7m-zHO" firstAttribute="top" secondItem="5" secondAttribute="top" constant="273" id="84D-LI-siD"/>
-                            <constraint firstItem="Dc7-Rp-CpV" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="NWF-u2-ICV"/>
+                            <constraint firstItem="OAJ-7m-zHO" firstAttribute="top" secondItem="5" secondAttribute="top" constant="270" id="BQ8-UN-9YZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Dc7-Rp-CpV" secondAttribute="bottom" constant="57" id="C4B-5o-Cpb"/>
+                            <constraint firstItem="1RU-BP-O20" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="210" id="LSr-vI-EiU"/>
                             <constraint firstItem="Dc7-Rp-CpV" firstAttribute="centerX" secondItem="OAJ-7m-zHO" secondAttribute="centerX" type="default" id="QKR-Bl-iYt"/>
-                            <constraint firstAttribute="bottom" secondItem="Dc7-Rp-CpV" secondAttribute="bottom" constant="173" id="X4Z-iF-gCX"/>
+                            <constraint firstItem="OAJ-7m-zHO" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="85" id="flL-9q-MlH"/>
+                            <constraint firstItem="1RU-BP-O20" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="tc4-3b-N0R"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="visual" destination="1RU-BP-O20" id="L42-ZX-hSx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +81,12 @@
             <relationships>
                 <relationship kind="action" name="RecordPlayButton:"/>
                 <relationship kind="action" name="buttonDown"/>
+                <relationship kind="action" name="buttonErase:"/>
                 <relationship kind="action" name="buttonUp"/>
+                <relationship kind="outlet" name="dataImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="urlImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="variableDurationImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="visual" candidateClass="UIImageView"/>
             </relationships>
         </class>
     </classes>

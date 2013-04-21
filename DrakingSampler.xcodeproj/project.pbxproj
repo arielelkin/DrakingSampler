@@ -155,6 +155,11 @@
 		B0E312FE17241A1100AC4D9E /* Wurley.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0E3127717241A1100AC4D9E /* Wurley.cpp */; };
 		B0E312FF17241A1100AC4D9E /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = B0E3127817241A1100AC4D9E /* TODO */; };
 		B0E3130017241A1100AC4D9E /* VERSIONS in Resources */ = {isa = PBXBuildFile; fileRef = B0E3127917241A1100AC4D9E /* VERSIONS */; };
+		E4931CD51724322E000B6F3B /* 0.gif in Resources */ = {isa = PBXBuildFile; fileRef = E4931CD21724322D000B6F3B /* 0.gif */; };
+		E4931CD61724322E000B6F3B /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = E4931CD31724322E000B6F3B /* 1.gif */; };
+		E4931CD71724322E000B6F3B /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E4931CD41724322E000B6F3B /* 2.gif */; };
+		E4931D011724348C000B6F3B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4931D001724348C000B6F3B /* ImageIO.framework */; };
+		E4931D0717243513000B6F3B /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E4931D0617243513000B6F3B /* UIImage+animatedGIF.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -410,6 +415,12 @@
 		B0E3127717241A1100AC4D9E /* Wurley.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wurley.cpp; sourceTree = "<group>"; };
 		B0E3127817241A1100AC4D9E /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		B0E3127917241A1100AC4D9E /* VERSIONS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSIONS; sourceTree = "<group>"; };
+		E4931CD21724322D000B6F3B /* 0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 0.gif; sourceTree = "<group>"; };
+		E4931CD31724322E000B6F3B /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
+		E4931CD41724322E000B6F3B /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
+		E4931D001724348C000B6F3B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		E4931D0517243513000B6F3B /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		E4931D0617243513000B6F3B /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +428,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4931D011724348C000B6F3B /* ImageIO.framework in Frameworks */,
 				B0E310101724174800AC4D9E /* AudioToolbox.framework in Frameworks */,
 				B0E30FED1724170E00AC4D9E /* UIKit.framework in Frameworks */,
 				B0E30FEF1724170E00AC4D9E /* Foundation.framework in Frameworks */,
@@ -430,6 +442,12 @@
 		B0E30FDD1724170E00AC4D9E = {
 			isa = PBXGroup;
 			children = (
+				E4931D0517243513000B6F3B /* UIImage+animatedGIF.h */,
+				E4931D0617243513000B6F3B /* UIImage+animatedGIF.m */,
+				E4931D001724348C000B6F3B /* ImageIO.framework */,
+				E4931CD21724322D000B6F3B /* 0.gif */,
+				E4931CD31724322E000B6F3B /* 1.gif */,
+				E4931CD41724322E000B6F3B /* 2.gif */,
 				B0E3118F17241A1100AC4D9E /* MoMu-STK-1.0.0 */,
 				B0E3118A17241A0900AC4D9E /* mo_audio.h */,
 				B0E3118B17241A0900AC4D9E /* mo_audio.mm */,
@@ -853,6 +871,9 @@
 				B0E312AB17241A1100AC4D9E /* README in Resources */,
 				B0E312FF17241A1100AC4D9E /* TODO in Resources */,
 				B0E3130017241A1100AC4D9E /* VERSIONS in Resources */,
+				E4931CD51724322E000B6F3B /* 0.gif in Resources */,
+				E4931CD61724322E000B6F3B /* 1.gif in Resources */,
+				E4931CD71724322E000B6F3B /* 2.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +975,7 @@
 				B0E312FC17241A1100AC4D9E /* VoicForm.cpp in Sources */,
 				B0E312FD17241A1100AC4D9E /* Whistle.cpp in Sources */,
 				B0E312FE17241A1100AC4D9E /* Wurley.cpp in Sources */,
+				E4931D0717243513000B6F3B /* UIImage+animatedGIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

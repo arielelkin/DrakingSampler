@@ -23,5 +23,6 @@ struct AudioData{
 - (IBAction)buttonDown;
 - (IBAction)buttonUp;
 - (IBAction)buttonErase:(id)sender;
+@property IBOutlet UIImageView *visual;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "mo_audio.h"
-
+#import "UIImage+animatedGIF.h"
 
 #define SRATE 44100
 #define FRAMESIZE 128
@@ -69,6 +69,17 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
     sessionRec = false;
     loopSize = mySessionCounter;
     
+    static int currentImage;
+    currentImage = (currentImage + 1)%3;
+    
+    NSString *imageName = [NSString stringWithFormat:@"%d", currentImage];
+    NSLog(@"imagename: %@", imageName);
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:imageName withExtension:@"gif"];
+    
+    self.visual.image = [UIImage animatedImageWithAnimatedGIFData:[NSData dataWithContentsOfURL:url]];
+    
+    
 }
 
 - (IBAction)buttonErase:(id)sender {
@@ -86,6 +97,12 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self setupAudio];
+    
+    [self setupVisuals];
+}
+
+-(void)setupVisuals{
+    
 }
 
 -(void)setupAudio{
