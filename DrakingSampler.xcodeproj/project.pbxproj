@@ -1072,6 +1072,7 @@
 				B0E3100E1724170E00AC4D9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

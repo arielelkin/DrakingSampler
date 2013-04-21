@@ -22,5 +22,6 @@ struct AudioData{
 }
 - (IBAction)buttonDown;
 - (IBAction)buttonUp;
+- (IBAction)buttonErase:(id)sender;
 
 @end
