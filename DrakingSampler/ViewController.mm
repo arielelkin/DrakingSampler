@@ -14,6 +14,10 @@
 #define FRAMESIZE 128
 #define NUMCHANNELS 2
 
+Float32 mySample[1000000] = {0};
+bool sessionRec;
+int mySessionCounter = 0;
+
 void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
 {
 //    AudioData * data = (AudioData*) userData;
@@ -23,12 +27,21 @@ void audioCallback( Float32 * buffer, UInt32 framesize, void* userData)
         SAMPLE in = buffer[2*i];
         
         
-        
 //        in = data->reverb->tick(in);
 //
 //        in = in + data->mySynth->tick();
         
         SAMPLE out = in;
+        
+        if(sessionRec){
+            mySample[mySessionCounter] = in;
+            mySessionCounter++;
+        }
+        else {
+            in = mySample[mySessionCounter];
+            mySessionCounter++;
+        }
+
         
         buffer[2*i] = buffer[2*i+1] = out;
     }
